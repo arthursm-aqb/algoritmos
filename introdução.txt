@@ -1,0 +1,20 @@
+Aluno: Arthur da Silva Mariz 20251014040002 TADS 2025.2
+
+1 - Algoritmo é a solução de um problema no qual tem uma finitude de ações para resolvê-lo bem definidos, padronizado e, talvez, eficiente.
+2 - Para o desenvolvimento de programas, a melhor representação do algoritmo seria o pseudocódigo já que nos permite aprofundar melhor que o fluxograma no desenvolvimento da parte lógica do algoritmo e podemos portabilizar para qualquer lingugagem de programação facilmente.
+3 - A eficiência de um algoritmo é a rapidez no qual o algoritmo consegue resolver um problema e o estudo de algoritmos eficientes é importante para o desenvolvimento de programas porque quanto maior o fluxo de dados no programa, mais demorado pode ser a execução do programa
+e, sem um algoritmo eficiente, o tempo de execução pode extrapolar o aceitável ao usuário.
+4 - 
+Primo(inteiro n):
+  Se n<=1:
+    retorne Não
+  Se n == 2 então:
+    retorne Sim
+  Se n mod 2 == 0 então:
+    retorne Não
+	Para i = 3 até i*i<=n:
+		Se n mod i = 0 então:
+			  retorne Não
+	retorne Sim
+
+5- 
