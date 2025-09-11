@@ -6,15 +6,77 @@ Aluno: Arthur da Silva Mariz 20251014040002 TADS 2025.2
 e, sem um algoritmo eficiente, o tempo de execução pode extrapolar o aceitável ao usuário.
 4 - 
 Primo(inteiro n):
-  Se n<=1:
+  Se n<=1 então:
     retorne Não
   Se n == 2 então:
     retorne Sim
+  Fim se
   Se n mod 2 == 0 então:
     retorne Não
+  Fim se
 	Para i = 3 até i*i<=n:
 		Se n mod i = 0 então:
 			  retorne Não
+		Fim se
 	retorne Sim
 
-5- 
+5 - O programa retorna o MMC entre a e b e ele entrega essa informação no laço enquanto e sua condição é: enquanto x não for dividido por a e b, continue o laço.
+
+6 - DiferencaAbsoluta(lista inteiro a):
+	Se tamanho da lista<2 então:
+		Retorne 0
+	Fim se
+	
+	variavel inteira dif <- 0
+	Para i = 0 até (tamanho da lista-2) faça:
+		variavel inteira dif_atual <- |a[i]-a[i+1]|
+		Se dif < dif_atual então:
+			dif = dif_atual
+		Fim se
+	Fim Para
+	
+	Retorne dif
+
+7 - ParElemento(lista inteiros A, inteiro S):
+	variavel inteiro tamanho = tamanho da lista
+	Se tamanho<2 então:
+		retorne Falso
+		
+	Para i <- 0 até (tamanho-2) faça:
+		Para j <-i+1 até (tamanho-1) faça:
+			variavel inteiro soma <- A[i]+A[j]
+			Se soma == S então:
+				retorne Verdadeiro
+			Fim se
+		Fim Para
+	Fim Para
+	retorne Falso
+
+8 - ParElemento(lista inteiros A, inteiro S):
+	variavel inteiro tamanho = tamanho da lista
+	Se tamanho<2 então:
+		retorne Falso
+	variavel inteiro contador <- 0
+	Para i <- 0 até (tamanho-2) faça:
+		Para j <-i+1 até (tamanho-1) faça:
+			variavel inteiro soma <- A[i]+A[j]
+			Se soma == S então:
+				contador <- contador + 1
+			Fim se
+		Fim Para
+	Fim Para
+
+	retorne contador
+
+9 - Ordenado (lista A):
+	Se tamanho da lista<2:
+		retorne Verdadeiro
+	variavel inteiro anterior <- A[0]
+	Para i = 0 até (Tamanho da lista-2) faça:
+		Se a[i]>a[j] então:
+			retorne Falso
+		Fim se
+	Fim Para
+	
+	retorne Verdade
+
