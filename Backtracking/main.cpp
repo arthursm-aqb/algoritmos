@@ -28,5 +28,8 @@ int main()
 
     if (resultado) std::cout << "\n\nCaminho encontrado!";
     else std::cout << "\n\nCaminho inexistente!";
+
+    int resultadox = novo.caminhosLab(labirinto, l, c, inicioC, inicioL, fimC, fimL);
+    std::cout << resultadox << " caminhos";
     return 0;
 }

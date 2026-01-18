@@ -14,7 +14,8 @@ class Labirinto
     private:
         void setLab(const std::vector<std::vector<int>>& lab, int l, int c);
     public:
-        bool resolverLab(std::vector<std::vector<int>>& lab, int l, int c, int linha, int coluna, int fLinha, int fColuna);
+        bool resolverLab(std::vector<std::vector<int>> lab, int l, int c, int linha, int coluna, int fLinha, int fColuna);
+        int caminhosLab(std::vector<std::vector<int>> lab, int l, int c, int linha, int coluna, int fLinha, int fColuna);
 };
 
 void Labirinto::setLab(const std::vector<std::vector<int>>& lab, int l, int c)
@@ -52,7 +53,7 @@ void Labirinto::setLab(const std::vector<std::vector<int>>& lab, int l, int c)
     std::this_thread::sleep_for(std::chrono::milliseconds(80));
 }
 
-bool Labirinto::resolverLab(std::vector<std::vector<int>>& lab, int l, int c, int linha, int coluna, int fLinha, int fColuna)
+bool Labirinto::resolverLab(std::vector<std::vector<int>> lab, int l, int c, int linha, int coluna, int fLinha, int fColuna)
 {
     if (linha<0 || coluna<0 || linha>=l || coluna>=c || lab[linha][coluna]!=0 || fLinha>=l || fColuna >=c || fLinha<0 || fColuna<0) return false;
 
@@ -81,6 +82,28 @@ bool Labirinto::resolverLab(std::vector<std::vector<int>>& lab, int l, int c, in
     lab[linha][coluna] = 0;
     setLab(lab, l, c);
     return false;
+}
+
+int Labirinto::caminhosLab(std::vector<std::vector<int>> lab, int l, int c, int linha, int coluna, int fLinha, int fColuna)
+{
+    if (linha<0 || coluna<0 || linha>=l || coluna>=c || lab[linha][coluna]!=0 || fLinha>=l || fColuna >=c || fLinha<0 || fColuna<0) return 0;
+
+    lab[linha][coluna] = 2;
+    setLab(lab, l, c);
+
+    int ans = 0;
+    if (fLinha==linha && fColuna==coluna) ans = 1;
+    else
+    {
+        ans += caminhosLab(lab, l, c, linha+1, coluna, fLinha, fColuna);
+        ans += caminhosLab(lab, l, c, linha, coluna+1, fLinha, fColuna);
+        ans += caminhosLab(lab, l, c, linha, coluna-1, fLinha, fColuna);
+        ans += caminhosLab(lab, l, c, linha-1, coluna, fLinha, fColuna);
+    }
+
+    lab[linha][coluna] = 0;
+    setLab(lab, l, c);
+    return ans;
 }
 
 
